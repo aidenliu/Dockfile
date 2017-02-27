@@ -1,4 +1,4 @@
-FROM sshd:ubuntu
+FROM ubuntu:sshd
 
 MAINTAINER Aiden <aidenliu@qq.com>
 
