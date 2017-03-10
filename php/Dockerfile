@@ -53,6 +53,11 @@ RUN wget http://packages.couchbase.com/releases/couchbase-release/couchbase-rele
 RUN dpkg -i couchbase-release-1.0-2-amd64.deb
 RUN apt-get update
 RUN apt-get install -y libcouchbase-dev libcouchbase2-bin build-essential
+RUN pecl channel-update pecl.php.net
+RUN pecl install pcs-1.3.1
+RUN echo "extension=pcs.so" > /etc/php/5.6/mods-available/pcs.ini
+RUN ln -s /etc/php/5.6/mods-available/pcs.ini /etc/php/5.6/fpm/conf.d/10-pcs.ini
+RUN ln -s /etc/php/5.6/mods-available/pcs.ini /etc/php/5.6/cli/conf.d/10-pcs.ini
 RUN pecl install couchbase
 RUN echo "extension=couchbase.so" > /etc/php/5.6/mods-available/couchbase.ini
 RUN ln -s /etc/php/5.6/mods-available/couchbase.ini /etc/php/5.6/fpm/conf.d/couchbase.ini
