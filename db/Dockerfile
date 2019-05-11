@@ -1,6 +1,6 @@
 # Mysql/MongoDB Dockerfile
 
-FROM ubuntu:sshd
+FROM ubuntu-14.04:sshd
 
 MAINTAINER Aiden <aidenliu@qq.com>
 

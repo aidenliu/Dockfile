@@ -1,4 +1,4 @@
-FROM ubuntu:sshd
+FROM ubuntu-14.04:sshd
 
 MAINTAINER Aiden <aidenliu@qq.com>
 
@@ -18,7 +18,6 @@ RUN apt-get update
  php5.6-mysql \
  php-gearman \
  php-imagick \
- php-gmagick \
  php5.6-mbstring \
  php5.6-mcrypt \
  php-memcache \
@@ -77,7 +76,7 @@ ADD ext/opencc/OpenCC /tmp/OpenCC
 WORKDIR /tmp/OpenCC
 RUN make && make install
 
-ADD ext/opencc/opencc4php /tmp/opencc4php
+# ADD ext/opencc/opencc4php /tmp/opencc4php
 WORKDIR /tmp/opencc4php
 RUN phpize
 RUN ./configure
